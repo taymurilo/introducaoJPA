@@ -2,6 +2,8 @@ package teste.dao;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import org.junit.After;
@@ -47,8 +49,8 @@ public class FilmeDaoTeste {
 @Test
 public void testSalvar(){
 	Filme filme= new Filme();
-	filme.setTitulo("Avatar");
-	filme.setSinopse("Suspence");
+	filme.setTitulo("Todo Mundo em Pânico");
+	filme.setSinopse("Comédia");
 	
 	FilmeDao dao= new FilmeDao(entityManager);
 	dao.salvar(filme);
@@ -60,4 +62,19 @@ public void buscarFilmePorId(){
 	
 	
 }
+@Test
+public void testeexcluirFilme(){
+	
+	dao.excluirFilme(1l);
+}
+@Test
+public void testeListar(){
+	List<Filme> filmes= dao.listaTodos();
+	for (Filme filme : filmes) {
+		System.out.println(filme.getTitulo());
+		
+	}	
+	
+}
+
 }
