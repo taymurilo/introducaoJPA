@@ -74,7 +74,11 @@ public void testeListar(){
 		System.out.println(filme.getTitulo());
 		
 	}	
-	
+}
+@Test	
+public void testaEditarFilme(){
+		dao.editarFilme(2L, "Ação", "Bradock 3");
+	}
 }
 
-}
+

@@ -30,9 +30,17 @@ public class FilmeDao {
 		entityManager.remove(filme);
 	}
 
+	@SuppressWarnings("unchecked")//so para não aparecer o erro amarelo 
 	public List<Filme> listaTodos(){
 		return entityManager.createQuery("From Filme").getResultList();
 		
+		
+	}
+    
+	public void editarFilme(Long id,String sinopse,String titulo){
+	    Filme filme= entityManager.find(Filme.class, id);
+	    filme.setTitulo(titulo);
+	    filme.setSinopse(sinopse);
 		
 	}
 }
